@@ -1,0 +1,40 @@
+<p>new-applicant works!</p>
+<p>neu-bewerber works!</p>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label> Name: </label>
+        <input type="text" class="form-control" formControlName="name">
+
+    </div>
+
+    <div>
+        <label> Vorname: </label>
+        <input type="text" class="form-control" formControlName="vorname">
+
+    </div>
+
+    <div>
+        <label> Alter: </label>
+        <input type="number" class="form-control" formControlName="alter">
+    </div>
+
+    <div>
+        <label> Geschlecht:  </label>
+        <input type="text" class="form-control" formControlName="geschlecht">
+    </div>
+
+    <div>
+        <label>Skills:</label>
+        <input type="text" class="form-control" formControlName="skills">
+    </div>
+
+    <div class="divo">
+        <button mat-raised-button color="basic" type="button" (click)="closeDialog()">Close</button>
+
+        <button mat-raised-button color="accent" type="submit" [disabled]="!myForm.valid">Submit</button>
+    </div>
+
+
+</form>

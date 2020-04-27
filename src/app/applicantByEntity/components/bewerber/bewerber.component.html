@@ -1,0 +1,121 @@
+<h1> By Entity </h1>
+
+
+
+
+<!-- <button (click)="updatePizza(bewerb.id, name.value)">Upgrade to Large</button>
+    <button (click)="updatePizza(bewerb.id, name.value)">Downgrade to Small</button> -->
+
+
+
+
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Vorname</th>
+                <th scope="col">Alter</th>
+                <th scope="col">Geschlechte</th>
+                <th scope="col">Skills</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bewerb of bewerbers | async ">
+                <th scope="row">{{ bewerb.id }}</th>
+                <td>{{ bewerb.name }}</td>
+                <td> {{ bewerb.vorname }}</td>
+                <td> {{ bewerb.alter }}</td>
+                <td> {{ bewerb.geschlecht }}</td>
+                <td>
+
+                    <mat-chip-list aria-label="Fish selection">
+                        <mat-chip *ngFor="let k of bewerb.skills.split(',')"> {{ k }} </mat-chip>
+                    </mat-chip-list>
+
+                </td>
+                <th>
+                    <button type="button" class="btn btn-primary" (click)="showSkills(bewerb.skills)" data-toggle="modal" data-target="#myModal">show Skills</button>
+
+                </th>
+                <th>
+                    <button type="button " class="btn btn-danger " (click)="deletePizza(bewerb.id)">Delete</button>
+                </th>
+            </tr>
+            <tr scope="row">
+
+
+
+
+
+            </tr>
+            <tr scope="row">
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+
+
+                <button type="button" class="btn btn-primary btn-lg" (click)="openDialog()">Add</button>
+
+
+
+
+
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade " id="myModal" role="dialog ">
+    <div class="modal-dialog ">
+
+        <!-- Modal content-->
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <p>
+                    <button type="button " class="close " data-dismiss="modal ">&times;</button>
+                </p>
+
+
+                <h4>Skills</h4>
+
+
+            </div>
+            <div class="modal-body ">
+                <p>Die Liste:</p>
+
+
+                <div>
+                    <mat-chip-list aria-label="Fish selection">
+                        <mat-chip *ngFor="let sk of iSkills "> {{sk}} </mat-chip>
+                    </mat-chip-list>
+
+                </div>
+
+
+
+
+
+            </div>
+            <div class="modal-footer ">
+                <button type="button " class="btn btn-default " data-dismiss="modal ">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
